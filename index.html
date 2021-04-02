@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng từ điển cơ bản</title>
+</head>
+
+<body>
+    <h4>Nhập vào:</h4>
+    <input type="text" id="word" oninput="trans()">
+    <pre id="result"></pre>
+    <script>
+        function trans() {
+            // document.getElementById("result").innerText = ""
+            let word = document.getElementById("word").value
+            let eng = ['dog', 'cat', 'cow', 'bird', 'tiger', 'lion']
+            let vie = ['chó', 'mèo', 'bò', 'chim', 'hổ', 'sư tử']
+            let flag = 0
+            let temp
+            for (let i = 0; i < eng.length; i++) {
+                for (let j = 0; j < vie.length; j++) {
+                    if (i == j && word == eng[i]) {
+                        flag = 1
+                        temp = vie[j]
+                        break
+                    }
+                }
+            }
+            if (flag == 1) {
+                document.getElementById("result").innerText = temp
+            }
+            else {
+                document.getElementById("result").innerText = "Không tìm thấy"
+            }
+        }
+    </script>
+</body>
+
+</html>
